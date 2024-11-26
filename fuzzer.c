@@ -6,9 +6,16 @@
 
 #define MUTATION 13
 
+const char char_pool[] =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "abcdefghijklmnopqrstuvwxyz"
+    "0123456789"
+    "!@#$%^&*()_+[]{}|;:',.<>?/`~";
+const size_t char_pool_size = sizeof(char_pool) - 1;
+
 unsigned char randByte()
 {
-    return rand() % 256; // Make the char rand by calling rand then mod it to 256 for range of a byte
+    return char_pool[rand() % char_pool_size]; // Make the char rand by calling rand then mod it to 256 for range of a byte
 }
 
 void add_input(char **input, size_t *size) // Increase the size of the input by 10
